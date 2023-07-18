@@ -8,9 +8,16 @@
 </head>
 <body>
     <div id="weather-info">
-        <p class="text" id="cityNameText">City: -</p>
-        <p class="text" id="tempText">- °C</p>
-        <p class="text" id="windSpeedText">Wind speed: - m/s</p>
+        <input type="text" id="citySearch" placeholder="Type in a city name">
+        <button id="citySubmit">Change city</button>
+
+        <p id="cityNameText"></p>
+        <p id="weatherDesc"></p>
+        <img src="#" alt="weather-icon" id="weatherIcon">
+        <p id="tempText"></p>
+        <p id="windSpeedText"></p>
+        <p id="pressureText"></p>
+        <p id="humidityText"></p>
     </div>
 
     <script src="main.js"></script>
