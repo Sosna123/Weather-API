@@ -44,6 +44,8 @@ div#weather-card{
 
 div#search{
     height: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 div#weather-info > span{
