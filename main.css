@@ -1,0 +1,38 @@
+div > p,input,button{
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+body{
+    height: 100%;
+    width: 99%;
+    background-image: url('https://wallpaperaccess.com/full/857.jpg');
+    object-fit: scale-down;
+}
+
+div#weather-info{
+    background: black;
+    height: 400px;
+    width: 500px;
+    border-radius: 10px;
+    margin: auto;
+}
+
+button{
+    background: grey;
+    border-radius: 3px;
+    padding: 5px;
+}
+
+input{
+    background-color: grey;
+    border: gray;
+    border-radius: 2px;
+    border-width: 2px;
+    padding: 5px;
+}
+
+p#weatherDesc{
+    text-transform: capitalize;
+}
