@@ -32,18 +32,18 @@ const fetchData = async () => {
 const updateData = () => {
     fetchData().then(data => {
         cityName = data.name;
-        weatherDesc = data.weather[0].description;
-        weatherIcon = data.weather[0].icon;
         temp = Math.floor(data.main.temp);
         tempFeel = Math.floor(data.main.feels_like);
+        weatherDesc = data.weather[0].description;
+        weatherIcon = data.weather[0].icon;
         windSpeed = data.wind.speed;
         pressure = data.main.pressure;
         humidity = data.main.humidity
         
-        cityNameText.innerText = `Weather in: ${cityName}`
+        cityNameText.innerText = `Weather in ${cityName}`
+        tempText.innerHTML = `${temp}°C  <span id='feels-like'>(Feels like ${tempFeel}°C)</span>`
         weatherDescText.innerText = `${weatherDesc}`
         weatherIconImg.src = `https://openweathermap.org/img/wn/${weatherIcon}.png`
-        tempText.innerHTML = `${temp}°C  <span id='feels-like'>(Feels like ${tempFeel}°C)</span>`
         windSpeedText.innerText = `Wind speed: ${windSpeed} m/s`
         pressureText.innerText = `Pressure: ${pressure} hPa`
         humidityText.innerHTML = `Humidity: ${humidity}%`

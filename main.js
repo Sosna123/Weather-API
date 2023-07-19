@@ -73,17 +73,17 @@ var fetchData = function () { return __awaiter(_this, void 0, void 0, function (
 var updateData = function () {
     fetchData().then(function (data) {
         cityName = data.name;
-        weatherDesc = data.weather[0].description;
-        weatherIcon = data.weather[0].icon;
         temp = Math.floor(data.main.temp);
         tempFeel = Math.floor(data.main.feels_like);
+        weatherDesc = data.weather[0].description;
+        weatherIcon = data.weather[0].icon;
         windSpeed = data.wind.speed;
         pressure = data.main.pressure;
         humidity = data.main.humidity;
-        cityNameText.innerText = "Weather in: ".concat(cityName);
+        cityNameText.innerText = "Weather in ".concat(cityName);
+        tempText.innerHTML = "".concat(temp, "\u00B0C  <span id='feels-like'>(Feels like ").concat(tempFeel, "\u00B0C)</span>");
         weatherDescText.innerText = "".concat(weatherDesc);
         weatherIconImg.src = "https://openweathermap.org/img/wn/".concat(weatherIcon, ".png");
-        tempText.innerHTML = "".concat(temp, "\u00B0C  <span id='feels-like'>(Feels like ").concat(tempFeel, "\u00B0C)</span>");
         windSpeedText.innerText = "Wind speed: ".concat(windSpeed, " m/s");
         pressureText.innerText = "Pressure: ".concat(pressure, " hPa");
         humidityText.innerHTML = "Humidity: ".concat(humidity, "%");
