@@ -22,10 +22,9 @@ let pressure: number;
 let humidity: number;
 
 
-console.log(process.env);
 // functions
 const fetchData = async () => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${process.env.API_KEY}`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=d764b95fb2e4dbd50206ed6cae5b45a1`);
     const data = await response.json();
     return data;
 }

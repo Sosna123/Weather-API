@@ -55,13 +55,12 @@ var tempFeel;
 var windSpeed;
 var pressure;
 var humidity;
-console.log(process.env);
 // functions
 var fetchData = function () { return __awaiter(_this, void 0, void 0, function () {
     var response, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(cityName, "&units=metric&appid=").concat(process.env.API_KEY))];
+            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(cityName, "&units=metric&appid=d764b95fb2e4dbd50206ed6cae5b45a1"))];
             case 1:
                 response = _a.sent();
                 return [4 /*yield*/, response.json()];
