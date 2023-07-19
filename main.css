@@ -1,0 +1,89 @@
+div p,input,button{
+    color: white;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+html{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+}
+
+body{
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    background-image: url('https://wallpaperaccess.com/full/857.jpg');
+    object-fit: scale-down;
+    display: flex;
+}
+
+div#weather-card{
+    background: rgba(0, 0, 0, 0.8);
+    max-height: 400px;
+    max-width: 500px;
+    height: 100%;
+    width: 100%;
+    border-radius: 10px;
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    padding: 20px;
+}
+
+button{
+    background: grey;
+    border-radius: 3px;
+    padding:0px;
+    margin-left:0px;
+    margin-bottom:0px;
+    height: 100%;
+    width: 40px;
+}
+
+input#citySearch{
+    background-color: grey;
+    border: gray;
+    border-radius: 5px;
+    height: 40px;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    margin: 0px 5px 0px;
+}
+
+p#weatherDesc{
+    text-transform: capitalize;
+}
+
+div#search{
+    height: 40px;
+}
+
+p#tempText{
+    font-size: 30px;
+}
+
+p#tempText > span{
+    font-size: 0.5em;
+}
+
+div#weather-info > span{
+    display: flex;
+    margin: auto;
+    width: 150px;
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 0,
+  'wght' 400,
+  'GRAD' 0,
+  'opsz' 30
+}
+
+

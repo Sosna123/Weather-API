@@ -5,19 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" type="text/css" href="main.css">
+    <!--Google icons-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 <body>
-    <div id="weather-info">
-        <input type="text" id="citySearch" placeholder="Type in a city name">
-        <button id="citySubmit">Change city</button>
-
-        <p id="cityNameText"></p>
-        <p id="weatherDesc"></p>
-        <img src="#" alt="weather-icon" id="weatherIcon">
-        <p id="tempText"></p>
-        <p id="windSpeedText"></p>
-        <p id="pressureText"></p>
-        <p id="humidityText"></p>
+    <div id="weather-card">
+        <div id="search">
+            <input type="text" id="citySearch" placeholder="Type in a city name">
+            <button id="citySubmit" class="material-symbols-outlined">search</button>
+        </div>
+        
+        <div id="weather-info">
+            <p id="cityNameText"></p>
+            <p id="tempText"></p>
+            <span>
+                <p id="weatherDesc"></p>
+                <img src="#" alt="weather-icon" id="weatherIcon">
+            </span>
+            <p id="windSpeedText"></p>
+            <p id="pressureText"></p>
+            <p id="humidityText"></p>
+        </div>
+        
     </div>
 
     <script src="main.js"></script>

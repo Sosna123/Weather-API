@@ -43,15 +43,17 @@ const updateData = () => {
         cityNameText.innerText = `Weather in: ${cityName}`
         weatherDescText.innerText = `${weatherDesc}`
         weatherIconImg.src = `https://openweathermap.org/img/wn/${weatherIcon}.png`
-        tempText.innerText = `${temp}°C  (Feels like ${tempFeel}°C)`
+        tempText.innerHTML = `${temp}°C  <span id='feels-like'>(Feels like ${tempFeel}°C)</span>`
         windSpeedText.innerText = `Wind speed: ${windSpeed} m/s`
         pressureText.innerText = `Pressure: ${pressure} hPa`
         humidityText.innerHTML = `Humidity: ${humidity}%`
     })
 }
 
+// TODO kiedy apka prawie skończona to nie może być w komentarzu
 // setInterval(updateData, 10000)
 
+// TODO kiedy apka prawie skończona to musi zniknąć
 updateData();
 
 // event listeners
@@ -61,10 +63,6 @@ citySubmit.addEventListener("click", () => {
         cityInput.value = '';
         updateData();
     }
-})
-
-langCheckbox.addEventListener('', () => {
-
 })
 
 
