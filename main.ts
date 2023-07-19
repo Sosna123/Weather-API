@@ -9,6 +9,7 @@ const humidityText = document.querySelector('#humidityText') as HTMLParagraphEle
 
 const cityInput = document.querySelector('#citySearch') as HTMLInputElement;
 const citySubmit = document.querySelector('#citySubmit') as HTMLButtonElement;
+const langCheckbox = document.querySelector('#changeLanguage') as HTMLInputElement;
 
 // variables
 let cityName = 'Konin';
@@ -22,7 +23,7 @@ let humidity: number;
 
 // functions
 const fetchData = async () => {
-    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=d764b95fb2e4dbd50206ed6cae5b45a1`);
+    const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=${process.env.apiKey}`);
     const data = await response.json();
     return data;
 }
@@ -52,12 +53,17 @@ const updateData = () => {
 
 updateData();
 
+// event listeners
 citySubmit.addEventListener("click", () => {
     if(cityInput.value != ''){
         cityName = cityInput.value;
         cityInput.value = '';
         updateData();
     }
+})
+
+langCheckbox.addEventListener('', () => {
+
 })
 
 
