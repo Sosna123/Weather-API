@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-//html elements
+// html elements
 var cityNameText = document.querySelector("#cityNameText");
 var weatherDescText = document.querySelector("#weatherDesc");
 var weatherIconImg = document.querySelector("#weatherIcon");

@@ -27,7 +27,7 @@ body{
 
 div#weather-card{
     background: rgba(0, 0, 0, 0.8);
-    max-height: 400px;
+    max-height: 450px;
     max-width: 500px;
     height: 100%;
     width: 100%;
@@ -38,7 +38,7 @@ div#weather-card{
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    padding: 20px;
+    padding: 25px;
 }
 
 
@@ -48,7 +48,7 @@ div#search{
     justify-content: center;
 }
 
-div#weather-info > span{
+div#weather-info span{
     display: flex;
     margin: auto;
     width: 150px;
@@ -76,6 +76,11 @@ input#citySearch{
     padding: 0px;
     position: relative;
     margin: 0px 5px 0px;
+    
+}
+
+div#sameFontSize p{
+    font-size: 19px;
 }
 
 p#weatherDesc{
@@ -86,8 +91,9 @@ p#tempText{
     font-size: 30px;
 }
 
-p#tempText > span{
-    font-size: 0.5em;
+div#weather-info > p#tempText > span{
+    font-size: 0.6em;
+    display: inline;
 }
 
 p#cityNameText{

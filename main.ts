@@ -1,4 +1,4 @@
-//html elements
+// html elements
 const cityNameText = document.querySelector("#cityNameText") as HTMLParagraphElement;
 const weatherDescText = document.querySelector("#weatherDesc") as HTMLParagraphElement;
 const weatherIconImg = document.querySelector("#weatherIcon") as HTMLImageElement;
