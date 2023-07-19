@@ -45,6 +45,7 @@ var pressureText = document.querySelector('#pressureText');
 var humidityText = document.querySelector('#humidityText');
 var cityInput = document.querySelector('#citySearch');
 var citySubmit = document.querySelector('#citySubmit');
+var langCheckbox = document.querySelector('#changeLanguage');
 // variables
 var cityName = 'Konin';
 var weatherDesc;
@@ -59,7 +60,7 @@ var fetchData = function () { return __awaiter(_this, void 0, void 0, function (
     var response, data;
     return __generator(this, function (_a) {
         switch (_a.label) {
-            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(cityName, "&units=metric&appid=d764b95fb2e4dbd50206ed6cae5b45a1"))];
+            case 0: return [4 /*yield*/, fetch("https://api.openweathermap.org/data/2.5/weather?q=".concat(cityName, "&units=metric&appid=").concat(process.env.apiKey))];
             case 1:
                 response = _a.sent();
                 return [4 /*yield*/, response.json()];
@@ -90,10 +91,13 @@ var updateData = function () {
 };
 // setInterval(updateData, 10000)
 updateData();
+// event listeners
 citySubmit.addEventListener("click", function () {
     if (cityInput.value != '') {
         cityName = cityInput.value;
         cityInput.value = '';
         updateData();
     }
+});
+langCheckbox.addEventListener('', function () {
 });
