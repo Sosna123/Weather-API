@@ -52,7 +52,15 @@ var mainPageButton = document.querySelector('#mainPage');
 var favContainer = document.querySelector('#favContainer');
 var favList = document.querySelector('#favList');
 var weatherInfo = document.querySelector('#weather-card');
-var fav1City = document.querySelector('#fav1');
+var fav1City;
+var fav2City;
+var fav3City;
+var fav4City;
+var fav5City;
+var fav6City;
+var fav7City;
+var fav8City;
+var fav9City;
 // variables
 var favArr = [];
 var favIndex = 1;
@@ -110,16 +118,37 @@ citySubmit.addEventListener("click", function () {
 favoriteButton.addEventListener('click', function () {
     favArr.push(cityName);
     favList.innerHTML += "<button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button>");
-    fav1City = document.querySelector('#fav1');
-    console.log(fav1City);
+    if (favIndex === 1) {
+        fav1City = document.querySelector("#fav1");
+        fav1City.addEventListener('click', function () {
+            var fav1CityChild = fav1City.firstChild;
+            cityName = fav1CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    else if (favIndex === 2) {
+        fav2City = document.querySelector("#fav2");
+        fav2City.addEventListener('click', function () {
+            var fav2CityChild = fav2City.firstChild;
+            cityName = fav2CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    else if (favIndex === 3) {
+        fav3City = document.querySelector("#fav3");
+        fav3City.addEventListener('click', function () {
+            var fav3CityChild = fav3City.firstChild;
+            cityName = fav3CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
     favIndex++;
-});
-fav1City.addEventListener('click', function () {
-    var fav1CityChild = fav1City.firstChild;
-    cityName = fav1CityChild.innerText;
-    updateData();
-    favContainer.hidden = true;
-    weatherInfo.hidden = false;
 });
 // *changing sites function
 favPageButton.addEventListener('click', function () {

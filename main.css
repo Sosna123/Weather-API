@@ -54,6 +54,10 @@ div#weather-info span{
     width: 150px;
 }
 
+div#favList{
+    height: 450px;
+}
+
 
 /* ! weather info */
 

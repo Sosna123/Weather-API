@@ -18,7 +18,15 @@ const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
 const favList = document.querySelector('#favList') as HTMLDivElement;
 const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
 
-let fav1City: HTMLElement = document.querySelector('#fav1') as HTMLElement;
+let fav1City: HTMLButtonElement;
+let fav2City: HTMLButtonElement;
+let fav3City: HTMLButtonElement;
+let fav4City: HTMLButtonElement;
+let fav5City: HTMLButtonElement;
+let fav6City: HTMLButtonElement;
+let fav7City: HTMLButtonElement;
+let fav8City: HTMLButtonElement;
+let fav9City: HTMLButtonElement;
 
 // variables
 let favArr: string[] = [];
@@ -76,19 +84,43 @@ citySubmit.addEventListener("click", () => {
 favoriteButton.addEventListener('click', () => {
     favArr.push(cityName);
     favList.innerHTML += `<button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button>`
-    fav1City = document.querySelector('#fav1') as HTMLElement;
-    console.log(fav1City)
+    
+    if(favIndex === 1){
+        fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
+        fav1City.addEventListener('click', () => {
+            let fav1CityChild = fav1City.firstChild as HTMLParagraphElement;
+            cityName = fav1CityChild.innerText;
+            updateData();
+            
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        })
+    } else if(favIndex === 2){
+        fav2City = document.querySelector(`#fav2`) as HTMLButtonElement;
+        fav2City.addEventListener('click', () => {
+            let fav2CityChild = fav2City.firstChild as HTMLParagraphElement;
+            cityName = fav2CityChild.innerText;
+            updateData();
+            
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        })
+    } else if(favIndex === 3){
+        fav3City = document.querySelector(`#fav3`) as HTMLButtonElement;
+        fav3City.addEventListener('click', () => {
+            let fav3CityChild = fav3City.firstChild as HTMLParagraphElement;
+            cityName = fav3CityChild.innerText;
+            updateData();
+            
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        })
+    }
+
     favIndex++;
 })
 
-fav1City.addEventListener('click', () => {
-    let fav1CityChild = fav1City.firstChild as HTMLParagraphElement;
-    cityName = fav1CityChild.innerText;
-    updateData();
-    
-    favContainer.hidden = true;
-    weatherInfo.hidden = false;
-})
+
 
 
 // *changing sites function
