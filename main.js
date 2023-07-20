@@ -46,7 +46,14 @@ var humidityText = document.querySelector('#humidityText');
 var cityInput = document.querySelector('#citySearch');
 var citySubmit = document.querySelector('#citySubmit');
 var langCheckbox = document.querySelector('#changeLanguage');
+var favoriteButton = document.querySelector('#favorites');
+var favPage = document.querySelector('#favPage');
+var mainPage = document.querySelector('#mainPage');
+var favContainer = document.querySelector('#favContainer');
+var weatherInfo = document.querySelector('#weather-card');
 // variables
+var favArr = [];
+var favIndex = 1;
 var cityName = 'Konin';
 var weatherDesc;
 var weatherIcon;
@@ -87,6 +94,7 @@ var updateData = function () {
         windSpeedText.innerText = "Wind speed: ".concat(windSpeed, " m/s");
         pressureText.innerText = "Pressure: ".concat(pressure, " hPa");
         humidityText.innerHTML = "Humidity: ".concat(humidity, "%");
+        favContainer.hidden = true;
     });
 };
 // TODO kiedy apka prawie skończona to nie może być w komentarzu
@@ -101,3 +109,21 @@ citySubmit.addEventListener("click", function () {
         updateData();
     }
 });
+favoriteButton.addEventListener('click', function () {
+    favArr.push(cityName);
+    favContainer.innerHTML += "<div id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></div>");
+    favIndex++;
+    console.log(favContainer);
+});
+favPage.addEventListener('click', function () {
+    favContainer.hidden = false;
+    weatherInfo.hidden = true;
+});
+mainPage.addEventListener('click', function () {
+    favContainer.hidden = true;
+    weatherInfo.hidden = false;
+});
+/*
+TODO favorites button, cityName adds to an array (clicking same button deletes this from array)
+TODO new site with favorites and when clicked, shows this site with favs
+*/

@@ -11,7 +11,16 @@ const cityInput = document.querySelector('#citySearch') as HTMLInputElement;
 const citySubmit = document.querySelector('#citySubmit') as HTMLButtonElement;
 const langCheckbox = document.querySelector('#changeLanguage') as HTMLInputElement;
 
+const favoriteButton = document.querySelector('#favorites') as HTMLButtonElement;
+const favPage = document.querySelector('#favPage') as HTMLButtonElement;
+const mainPage = document.querySelector('#mainPage') as HTMLButtonElement;
+const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
+const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
+
 // variables
+let favArr: string[] = [];
+let favIndex: number = 1;
+
 let cityName = 'Konin';
 let weatherDesc: string;
 let weatherIcon: string;
@@ -47,6 +56,8 @@ const updateData = () => {
         windSpeedText.innerText = `Wind speed: ${windSpeed} m/s`
         pressureText.innerText = `Pressure: ${pressure} hPa`
         humidityText.innerHTML = `Humidity: ${humidity}%`
+
+        favContainer.hidden = true;
     })
 }
 
@@ -64,5 +75,27 @@ citySubmit.addEventListener("click", () => {
         updateData();
     }
 })
+
+favoriteButton.addEventListener('click', () => {
+    favArr.push(cityName);
+    favContainer.innerHTML += `<div id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></div>`
+    favIndex++;
+    console.log(favContainer);
+})
+
+favPage.addEventListener('click', () => {
+    favContainer.hidden = false;
+    weatherInfo.hidden = true;
+})
+
+mainPage.addEventListener('click', () => {
+    favContainer.hidden = true;
+    weatherInfo.hidden = false;
+})
+
+/*
+TODO favorites button, cityName adds to an array (clicking same button deletes this from array)
+TODO new site with favorites and when clicked, shows this site with favs
+*/
 
 
