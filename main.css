@@ -118,10 +118,10 @@ img#weatherIcon{
 div#favList > button.favItems{
     background: rgba(128, 128, 128, 0.8);
     width: 100%;
-    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
-/* ! google icons*/
+/* ! google icons */
 
 .material-symbols-outlined {
   font-variation-settings:
