@@ -84,6 +84,8 @@ div#sameFontSize p{
 
 p#weatherDesc{
     text-transform: capitalize;
+    width: 150px;
+    flex-shrink: 0;
 }
 
 p#tempText{
@@ -93,6 +95,13 @@ p#tempText{
 div#weather-info > p#tempText > span{
     font-size: 0.6em;
     display: inline;
+}
+
+span#weatherDescSpan{
+    display: flex;
+    margin: auto;
+    width: 300px;
+    justify-content: center;
 }
 
 p#cityNameText{
