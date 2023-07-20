@@ -12,9 +12,10 @@ const citySubmit = document.querySelector('#citySubmit') as HTMLButtonElement;
 const langCheckbox = document.querySelector('#changeLanguage') as HTMLInputElement;
 
 const favoriteButton = document.querySelector('#favorites') as HTMLButtonElement;
-const favPage = document.querySelector('#favPage') as HTMLButtonElement;
-const mainPage = document.querySelector('#mainPage') as HTMLButtonElement;
+const favPageButton = document.querySelector('#favPage') as HTMLButtonElement;
+let mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
 const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
+const favList = document.querySelector('#favList') as HTMLDivElement;
 const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
 
 // variables
@@ -77,25 +78,32 @@ citySubmit.addEventListener("click", () => {
 })
 
 favoriteButton.addEventListener('click', () => {
-    favArr.push(cityName);
-    favContainer.innerHTML += `<div id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></div>`
-    favIndex++;
-    console.log(favContainer);
+    if(favArr.includes(cityName)){
+        favArr.splice(favArr.indexOf(cityName), 1)
+    } else{
+        favArr.push(cityName);
+        favList.innerHTML += `<li class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></li>`
+        mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
+        favIndex++;
+    }
 })
 
-favPage.addEventListener('click', () => {
+favPageButton.addEventListener('click', () => {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
 })
 
-mainPage.addEventListener('click', () => {
+mainPageButton.addEventListener('click', () => {
     favContainer.hidden = true;
     weatherInfo.hidden = false;
 })
 
+console.log(mainPageButton)
+
 /*
-TODO favorites button, cityName adds to an array (clicking same button deletes this from array)
-TODO new site with favorites and when clicked, shows this site with favs
+   ?  favorites button, cityName adds to an array, shows this site with favs
+TODO  clicking same button deletes a city from array,
+TODO  new site with favorites and when clicked, shows this site with favs
 */
 
 

@@ -47,9 +47,10 @@ var cityInput = document.querySelector('#citySearch');
 var citySubmit = document.querySelector('#citySubmit');
 var langCheckbox = document.querySelector('#changeLanguage');
 var favoriteButton = document.querySelector('#favorites');
-var favPage = document.querySelector('#favPage');
-var mainPage = document.querySelector('#mainPage');
+var favPageButton = document.querySelector('#favPage');
+var mainPageButton = document.querySelector('#mainPage');
 var favContainer = document.querySelector('#favContainer');
+var favList = document.querySelector('#favList');
 var weatherInfo = document.querySelector('#weather-card');
 // variables
 var favArr = [];
@@ -110,20 +111,27 @@ citySubmit.addEventListener("click", function () {
     }
 });
 favoriteButton.addEventListener('click', function () {
-    favArr.push(cityName);
-    favContainer.innerHTML += "<div id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></div>");
-    favIndex++;
-    console.log(favContainer);
+    if (favArr.includes(cityName)) {
+        favArr.splice(favArr.indexOf(cityName), 1);
+    }
+    else {
+        favArr.push(cityName);
+        favList.innerHTML += "<li class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></li>");
+        mainPageButton = document.querySelector('#mainPage');
+        favIndex++;
+    }
 });
-favPage.addEventListener('click', function () {
+favPageButton.addEventListener('click', function () {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
 });
-mainPage.addEventListener('click', function () {
+mainPageButton.addEventListener('click', function () {
     favContainer.hidden = true;
     weatherInfo.hidden = false;
 });
+console.log(mainPageButton);
 /*
-TODO favorites button, cityName adds to an array (clicking same button deletes this from array)
-TODO new site with favorites and when clicked, shows this site with favs
+   ?  favorites button, cityName adds to an array, shows this site with favs
+TODO  clicking same button deletes a city from array,
+TODO  new site with favorites and when clicked, shows this site with favs
 */

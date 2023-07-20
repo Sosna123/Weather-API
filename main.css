@@ -54,11 +54,6 @@ div#weather-info span{
     width: 150px;
 }
 
-div#fav1{
-    background: rgba(128, 128, 128, 0.8);
-}
-
-
 /* ! weather info */
 
 button{
@@ -67,7 +62,7 @@ button{
     padding:0px;
     margin-left:0px;
     margin-bottom:0px;
-    height: 35px;
+    height: 40px;
     width: 40px;
 }
 
@@ -104,6 +99,16 @@ p#cityNameText{
     font-size: 30px;
 }
 
+img#weatherIcon{
+    text-align: center;
+    width: 82px;
+    height: 82px;
+    object-fit:fill;
+}
+
+div#favList > li.favItems{
+    background: rgba(128, 128, 128, 0.8);
+}
 
 /* ! google icons*/
 
