@@ -27,7 +27,7 @@ body{
 
 div#weather-card, div#favContainer{
     background: rgba(0, 0, 0, 0.8);
-    max-height: 450px;
+    max-height: 500px;
     max-width: 500px;
     height: 100%;
     width: 100%;
@@ -53,6 +53,7 @@ div#weather-info span{
     margin: auto;
     width: 150px;
 }
+
 
 /* ! weather info */
 
@@ -120,6 +121,7 @@ div#favList > button.favItems{
     width: 100%;
     margin-bottom: 10px;
 }
+
 
 /* ! google icons */
 

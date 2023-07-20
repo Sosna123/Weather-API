@@ -18,6 +18,8 @@ const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
 const favList = document.querySelector('#favList') as HTMLDivElement;
 const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
 
+let fav1City: HTMLElement = document.querySelector('#fav1') as HTMLElement;
+
 // variables
 let favArr: string[] = [];
 let favIndex: number = 1;
@@ -74,11 +76,22 @@ citySubmit.addEventListener("click", () => {
 favoriteButton.addEventListener('click', () => {
     favArr.push(cityName);
     favList.innerHTML += `<button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button>`
+    fav1City = document.querySelector('#fav1') as HTMLElement;
+    console.log(fav1City)
     favIndex++;
 })
 
+fav1City.addEventListener('click', () => {
+    let fav1CityChild = fav1City.firstChild as HTMLParagraphElement;
+    cityName = fav1CityChild.innerText;
+    updateData();
+    
+    favContainer.hidden = true;
+    weatherInfo.hidden = false;
+})
 
-// *changing sites
+
+// *changing sites function
 favPageButton.addEventListener('click', () => {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
@@ -94,7 +107,6 @@ mainPageButton.addEventListener('click', () => {
 TODO  clicking same button deletes a city from array,
 TODO  new site with favorites and when clicked, shows this site with favs
 */
-
 
 // TODO kiedy apka prawie skończona to nie może być w komentarzu
 // setInterval(updateData, 10000)

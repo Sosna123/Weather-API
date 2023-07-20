@@ -52,6 +52,7 @@ var mainPageButton = document.querySelector('#mainPage');
 var favContainer = document.querySelector('#favContainer');
 var favList = document.querySelector('#favList');
 var weatherInfo = document.querySelector('#weather-card');
+var fav1City = document.querySelector('#fav1');
 // variables
 var favArr = [];
 var favIndex = 1;
@@ -109,9 +110,18 @@ citySubmit.addEventListener("click", function () {
 favoriteButton.addEventListener('click', function () {
     favArr.push(cityName);
     favList.innerHTML += "<button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button>");
+    fav1City = document.querySelector('#fav1');
+    console.log(fav1City);
     favIndex++;
 });
-// *changing sites
+fav1City.addEventListener('click', function () {
+    var fav1CityChild = fav1City.firstChild;
+    cityName = fav1CityChild.innerText;
+    updateData();
+    favContainer.hidden = true;
+    weatherInfo.hidden = false;
+});
+// *changing sites function
 favPageButton.addEventListener('click', function () {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
