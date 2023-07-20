@@ -1,8 +1,8 @@
 /* ! html, body, text */
 
-div p,input,button{
-    color: white;
+*{
     font-family: sans-serif;
+    color: white;
     font-weight: bold;
 }
 
@@ -106,8 +106,10 @@ img#weatherIcon{
     object-fit:fill;
 }
 
-div#favList > li.favItems{
+div#favList > button.favItems{
     background: rgba(128, 128, 128, 0.8);
+    width: 100%;
+    margin-top: 10px;
 }
 
 /* ! google icons*/

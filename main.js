@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 var _this = this;
-// html elements
+// *html elements
 var cityNameText = document.querySelector("#cityNameText");
 var weatherDescText = document.querySelector("#weatherDesc");
 var weatherIconImg = document.querySelector("#weatherIcon");
@@ -63,7 +63,7 @@ var tempFeel;
 var windSpeed;
 var pressure;
 var humidity;
-// functions
+// *functions
 var fetchData = function () { return __awaiter(_this, void 0, void 0, function () {
     var response, data;
     return __generator(this, function (_a) {
@@ -98,11 +98,7 @@ var updateData = function () {
         favContainer.hidden = true;
     });
 };
-// TODO kiedy apka prawie skończona to nie może być w komentarzu
-// setInterval(updateData, 10000)
-// TODO kiedy apka prawie skończona to musi zniknąć
-updateData();
-// event listeners
+// *event listeners
 citySubmit.addEventListener("click", function () {
     if (cityInput.value != '') {
         cityName = cityInput.value;
@@ -111,16 +107,11 @@ citySubmit.addEventListener("click", function () {
     }
 });
 favoriteButton.addEventListener('click', function () {
-    if (favArr.includes(cityName)) {
-        favArr.splice(favArr.indexOf(cityName), 1);
-    }
-    else {
-        favArr.push(cityName);
-        favList.innerHTML += "<li class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></li>");
-        mainPageButton = document.querySelector('#mainPage');
-        favIndex++;
-    }
+    favArr.push(cityName);
+    favList.innerHTML += "<button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button>");
+    favIndex++;
 });
+// *changing sites
 favPageButton.addEventListener('click', function () {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
@@ -129,9 +120,12 @@ mainPageButton.addEventListener('click', function () {
     favContainer.hidden = true;
     weatherInfo.hidden = false;
 });
-console.log(mainPageButton);
 /*
    ?  favorites button, cityName adds to an array, shows this site with favs
 TODO  clicking same button deletes a city from array,
 TODO  new site with favorites and when clicked, shows this site with favs
 */
+// TODO kiedy apka prawie skończona to nie może być w komentarzu
+// setInterval(updateData, 10000)
+// TODO kiedy apka prawie skończona to musi zniknąć
+updateData();

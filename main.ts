@@ -1,4 +1,4 @@
-// html elements
+// *html elements
 const cityNameText = document.querySelector("#cityNameText") as HTMLParagraphElement;
 const weatherDescText = document.querySelector("#weatherDesc") as HTMLParagraphElement;
 const weatherIconImg = document.querySelector("#weatherIcon") as HTMLImageElement;
@@ -13,7 +13,7 @@ const langCheckbox = document.querySelector('#changeLanguage') as HTMLInputEleme
 
 const favoriteButton = document.querySelector('#favorites') as HTMLButtonElement;
 const favPageButton = document.querySelector('#favPage') as HTMLButtonElement;
-let mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
+const mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
 const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
 const favList = document.querySelector('#favList') as HTMLDivElement;
 const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
@@ -32,7 +32,7 @@ let pressure: number;
 let humidity: number;
 
 
-// functions
+// *functions
 const fetchData = async () => {
     const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=d764b95fb2e4dbd50206ed6cae5b45a1`);
     const data = await response.json();
@@ -62,13 +62,7 @@ const updateData = () => {
     })
 }
 
-// TODO kiedy apka prawie skończona to nie może być w komentarzu
-// setInterval(updateData, 10000)
-
-// TODO kiedy apka prawie skończona to musi zniknąć
-updateData();
-
-// event listeners
+// *event listeners
 citySubmit.addEventListener("click", () => {
     if(cityInput.value != ''){
         cityName = cityInput.value;
@@ -78,16 +72,13 @@ citySubmit.addEventListener("click", () => {
 })
 
 favoriteButton.addEventListener('click', () => {
-    if(favArr.includes(cityName)){
-        favArr.splice(favArr.indexOf(cityName), 1)
-    } else{
-        favArr.push(cityName);
-        favList.innerHTML += `<li class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></li>`
-        mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
-        favIndex++;
-    }
+    favArr.push(cityName);
+    favList.innerHTML += `<button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button>`
+    favIndex++;
 })
 
+
+// *changing sites
 favPageButton.addEventListener('click', () => {
     favContainer.hidden = false;
     weatherInfo.hidden = true;
@@ -98,8 +89,6 @@ mainPageButton.addEventListener('click', () => {
     weatherInfo.hidden = false;
 })
 
-console.log(mainPageButton)
-
 /*
    ?  favorites button, cityName adds to an array, shows this site with favs
 TODO  clicking same button deletes a city from array,
@@ -107,3 +96,8 @@ TODO  new site with favorites and when clicked, shows this site with favs
 */
 
 
+// TODO kiedy apka prawie skończona to nie może być w komentarzu
+// setInterval(updateData, 10000)
+
+// TODO kiedy apka prawie skończona to musi zniknąć
+updateData();
