@@ -120,7 +120,6 @@ favoriteButton.addEventListener('click', function () {
     favArr.push(cityName);
     favList.innerHTML += "<button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button>");
     console.log(favIndex);
-    // TODO if(favIndex >= 4,5,6,7,8,9){}
     if (favIndex >= 1) {
         fav1City = document.querySelector("#fav1");
         fav1City.addEventListener('click', function () {
@@ -156,6 +155,56 @@ favoriteButton.addEventListener('click', function () {
         fav4City.addEventListener('click', function () {
             var fav4CityChild = fav4City.firstChild;
             cityName = fav4CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 5) {
+        fav5City = document.querySelector("#fav5");
+        fav5City.addEventListener('click', function () {
+            var fav5CityChild = fav5City.firstChild;
+            cityName = fav5CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 6) {
+        fav6City = document.querySelector("#fav6");
+        fav6City.addEventListener('click', function () {
+            var fav6CityChild = fav6City.firstChild;
+            cityName = fav6CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 7) {
+        fav7City = document.querySelector("#fav7");
+        fav7City.addEventListener('click', function () {
+            var fav7CityChild = fav7City.firstChild;
+            cityName = fav7CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 8) {
+        fav8City = document.querySelector("#fav8");
+        fav8City.addEventListener('click', function () {
+            var fav8CityChild = fav8City.firstChild;
+            cityName = fav8CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 9) {
+        fav9City = document.querySelector("#fav9");
+        fav9City.addEventListener('click', function () {
+            var fav9CityChild = fav9City.firstChild;
+            cityName = fav9CityChild.innerText;
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
