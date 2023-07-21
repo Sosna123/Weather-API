@@ -32,8 +32,6 @@ let fav6City: HTMLButtonElement;
 let fav7City: HTMLButtonElement;
 let fav8City: HTMLButtonElement;
 let fav9City: HTMLButtonElement;
-
-let favArr: string[] = [];
 let favIndex: number = 0;
 
 let cityName = 'Konin';
@@ -213,7 +211,9 @@ deleteFavsButton.addEventListener('click', () => {
     favItems.forEach(element => {
         element.remove();
     })
-    document.cookie = `favList=${favList.innerHTML}; expires=${new Date(1)}; currentFavIndex=${favIndex}; expires=${new Date(1)}`
+    document.cookie = `favList=; expires=${new Date(1)};`
+    document.cookie = `currentFavIndex=0; expires=${new Date(1)};`
+
 })
 
 // *changing sites function

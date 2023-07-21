@@ -66,7 +66,6 @@ var fav6City;
 var fav7City;
 var fav8City;
 var fav9City;
-var favArr = [];
 var favIndex = 0;
 var cityName = 'Konin';
 var weatherDesc;
@@ -243,7 +242,8 @@ deleteFavsButton.addEventListener('click', function () {
     favItems.forEach(function (element) {
         element.remove();
     });
-    document.cookie = "favList=".concat(favList.innerHTML, "; expires=").concat(new Date(1), "; currentFavIndex=").concat(favIndex, "; expires=").concat(new Date(1));
+    document.cookie = "favList=; expires=".concat(new Date(1), ";");
+    document.cookie = "currentFavIndex=0; expires=".concat(new Date(1), ";");
 });
 // *changing sites function
 favPageButton.addEventListener('click', function () {
