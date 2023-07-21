@@ -1,4 +1,6 @@
 // *html elements
+// weather info
+const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
 const cityNameText = document.querySelector("#cityNameText") as HTMLParagraphElement;
 const weatherDescText = document.querySelector("#weatherDesc") as HTMLParagraphElement;
 const weatherIconImg = document.querySelector("#weatherIcon") as HTMLImageElement;
@@ -7,16 +9,18 @@ const windSpeedText = document.querySelector('#windSpeedText') as HTMLParagraphE
 const pressureText = document.querySelector('#pressureText') as HTMLParagraphElement;
 const humidityText = document.querySelector('#humidityText') as HTMLParagraphElement;
 
+// inputs and search
 const cityInput = document.querySelector('#citySearch') as HTMLInputElement;
 const citySubmit = document.querySelector('#citySubmit') as HTMLButtonElement;
-const langCheckbox = document.querySelector('#changeLanguage') as HTMLInputElement;
 
+// favs page
 const favoriteButton = document.querySelector('#favorites') as HTMLButtonElement;
 const favPageButton = document.querySelector('#favPage') as HTMLButtonElement;
 const mainPageButton = document.querySelector('#mainPage') as HTMLButtonElement;
 const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
 const favList = document.querySelector('#favList') as HTMLDivElement;
-const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
+let favItems = document.querySelectorAll('.favItems');
+const deleteFavsButton = document.querySelector('#deleteFavs') as HTMLButtonElement;
 
 // *variables
 let fav1City: HTMLButtonElement;
@@ -28,18 +32,9 @@ let fav6City: HTMLButtonElement;
 let fav7City: HTMLButtonElement;
 let fav8City: HTMLButtonElement;
 let fav9City: HTMLButtonElement;
-let fav1Delete: HTMLButtonElement;
-let fav2Delete: HTMLButtonElement;
-let fav3Delete: HTMLButtonElement;
-let fav4Delete: HTMLButtonElement;
-let fav5Delete: HTMLButtonElement;
-let fav6Delete: HTMLButtonElement;
-let fav7Delete: HTMLButtonElement;
-let fav8Delete: HTMLButtonElement;
-let fav9Delete: HTMLButtonElement;
 
 let favArr: string[] = [];
-let favIndex: number = 1;
+let favIndex: number = 0;
 
 let cityName = 'Konin';
 let weatherDesc: string;
@@ -92,9 +87,10 @@ citySubmit.addEventListener("click", () => {
 
 favoriteButton.addEventListener('click', () => {
     // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
-    favArr.push(cityName);
-    favList.innerHTML += `<div><button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button> <button id='favDelete${favIndex}' class='material-symbols-outlined favItemsDelete'>delete</button><div>`
     
+    favIndex++;
+    favList.innerHTML += `<div class='favItems'><button class='favItems' id="fav${favIndex}"><p>${cityName}</p></button><div>`
+
     if(favIndex >= 1){
         // przenoszenie do informacji o mieście
         fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
@@ -105,14 +101,9 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-
-        // usuwanie 
-        fav1Delete = document.querySelector('#favDelete1')  as HTMLButtonElement;
-        fav1Delete.addEventListener('click', () => {
-            fav1City.parentElement!.remove();
-        })
     }
     if(favIndex >= 2){
+        // przenoszenie do informacji o mieście
         fav2City = document.querySelector(`#fav2`) as HTMLButtonElement;
         fav2City.addEventListener('click', () => {
             let fav2CityChild = fav2City.firstChild as HTMLParagraphElement;
@@ -120,11 +111,6 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        })
- 
-        fav2Delete = document.querySelector('#favDelete2')  as HTMLButtonElement;
-        fav2Delete.addEventListener('click', () => {
-            fav2City.parentElement!.remove();
         })
     }
     if(favIndex >= 3){
@@ -136,11 +122,6 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-
-        fav3Delete = document.querySelector('#favDelete3')  as HTMLButtonElement;
-        fav3Delete.addEventListener('click', () => {
-            fav3City.parentElement!.remove();
-        })
     }
     if(favIndex >= 4){
         fav4City = document.querySelector(`#fav4`) as HTMLButtonElement;
@@ -150,11 +131,6 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        })
-
-        fav4Delete = document.querySelector('#favDelete4')  as HTMLButtonElement;
-        fav4Delete.addEventListener('click', () => {
-            fav4City.parentElement!.remove();
         })
     }
     if(favIndex >= 5){
@@ -166,11 +142,6 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-
-        fav5Delete = document.querySelector('#favDelete5')  as HTMLButtonElement;
-        fav5Delete.addEventListener('click', () => {
-            fav5City.parentElement!.remove();
-        })
     }
     if(favIndex >= 6){
         fav6City = document.querySelector(`#fav6`) as HTMLButtonElement;
@@ -180,11 +151,6 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        })
-
-        fav6Delete = document.querySelector('#favDelete6')  as HTMLButtonElement;
-        fav6Delete.addEventListener('click', () => {
-            fav6City.parentElement!.remove();
         })
     }
     if(favIndex >= 7){
@@ -196,11 +162,6 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-
-        fav7Delete = document.querySelector('#favDelete7')  as HTMLButtonElement;
-        fav7Delete.addEventListener('click', () => {
-            fav7City.parentElement!.remove();
-        })
     }
     if(favIndex >= 8){
         fav8City = document.querySelector(`#fav8`) as HTMLButtonElement;
@@ -210,11 +171,6 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        })
-
-        fav8Delete = document.querySelector('#favDelete8')  as HTMLButtonElement;
-        fav8Delete.addEventListener('click', () => {
-            fav8City.parentElement!.remove();
         })
     }
     if(favIndex >= 9){
@@ -226,14 +182,16 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-
-        fav9Delete = document.querySelector('#favDelete9')  as HTMLButtonElement;
-        fav9Delete.addEventListener('click', () => {
-            fav9City.parentElement!.remove();
-        })
     }
 
-    favIndex++;
+    deleteFavsButton.addEventListener('click', () => {
+        favItems = document.querySelectorAll('.favItems');
+        favIndex = 0;
+        favItems.forEach(element => {
+            element.remove();
+        })
+    })
+
 })
 
 // *changing sites function

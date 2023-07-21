@@ -36,6 +36,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 // *html elements
+// weather info
+var weatherInfo = document.querySelector('#weather-card');
 var cityNameText = document.querySelector("#cityNameText");
 var weatherDescText = document.querySelector("#weatherDesc");
 var weatherIconImg = document.querySelector("#weatherIcon");
@@ -43,15 +45,17 @@ var tempText = document.querySelector('#tempText');
 var windSpeedText = document.querySelector('#windSpeedText');
 var pressureText = document.querySelector('#pressureText');
 var humidityText = document.querySelector('#humidityText');
+// inputs and search
 var cityInput = document.querySelector('#citySearch');
 var citySubmit = document.querySelector('#citySubmit');
-var langCheckbox = document.querySelector('#changeLanguage');
+// favs page
 var favoriteButton = document.querySelector('#favorites');
 var favPageButton = document.querySelector('#favPage');
 var mainPageButton = document.querySelector('#mainPage');
 var favContainer = document.querySelector('#favContainer');
 var favList = document.querySelector('#favList');
-var weatherInfo = document.querySelector('#weather-card');
+var favItems = document.querySelectorAll('.favItems');
+var deleteFavsButton = document.querySelector('#deleteFavs');
 // *variables
 var fav1City;
 var fav2City;
@@ -62,17 +66,8 @@ var fav6City;
 var fav7City;
 var fav8City;
 var fav9City;
-var fav1Delete;
-var fav2Delete;
-var fav3Delete;
-var fav4Delete;
-var fav5Delete;
-var fav6Delete;
-var fav7Delete;
-var fav8Delete;
-var fav9Delete;
 var favArr = [];
-var favIndex = 1;
+var favIndex = 0;
 var cityName = 'Konin';
 var weatherDesc;
 var weatherIcon;
@@ -127,8 +122,8 @@ citySubmit.addEventListener("click", function () {
 });
 favoriteButton.addEventListener('click', function () {
     // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
-    favArr.push(cityName);
-    favList.innerHTML += "<div><button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button> <button id='favDelete").concat(favIndex, "' class='material-symbols-outlined favItemsDelete'>delete</button><div>");
+    favIndex++;
+    favList.innerHTML += "<div class='favItems'><button class='favItems' id=\"fav".concat(favIndex, "\"><p>").concat(cityName, "</p></button><div>");
     if (favIndex >= 1) {
         // przenoszenie do informacji o mieście
         fav1City = document.querySelector("#fav1");
@@ -139,13 +134,9 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
-        // usuwanie 
-        fav1Delete = document.querySelector('#favDelete1');
-        fav1Delete.addEventListener('click', function () {
-            fav1City.parentElement.remove();
-        });
     }
     if (favIndex >= 2) {
+        // przenoszenie do informacji o mieście
         fav2City = document.querySelector("#fav2");
         fav2City.addEventListener('click', function () {
             var fav2CityChild = fav2City.firstChild;
@@ -153,10 +144,6 @@ favoriteButton.addEventListener('click', function () {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        });
-        fav2Delete = document.querySelector('#favDelete2');
-        fav2Delete.addEventListener('click', function () {
-            fav2City.parentElement.remove();
         });
     }
     if (favIndex >= 3) {
@@ -168,10 +155,6 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
-        fav3Delete = document.querySelector('#favDelete3');
-        fav3Delete.addEventListener('click', function () {
-            fav3City.parentElement.remove();
-        });
     }
     if (favIndex >= 4) {
         fav4City = document.querySelector("#fav4");
@@ -181,10 +164,6 @@ favoriteButton.addEventListener('click', function () {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        });
-        fav4Delete = document.querySelector('#favDelete4');
-        fav4Delete.addEventListener('click', function () {
-            fav4City.parentElement.remove();
         });
     }
     if (favIndex >= 5) {
@@ -196,10 +175,6 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
-        fav5Delete = document.querySelector('#favDelete5');
-        fav5Delete.addEventListener('click', function () {
-            fav5City.parentElement.remove();
-        });
     }
     if (favIndex >= 6) {
         fav6City = document.querySelector("#fav6");
@@ -209,10 +184,6 @@ favoriteButton.addEventListener('click', function () {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        });
-        fav6Delete = document.querySelector('#favDelete6');
-        fav6Delete.addEventListener('click', function () {
-            fav6City.parentElement.remove();
         });
     }
     if (favIndex >= 7) {
@@ -224,10 +195,6 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
-        fav7Delete = document.querySelector('#favDelete7');
-        fav7Delete.addEventListener('click', function () {
-            fav7City.parentElement.remove();
-        });
     }
     if (favIndex >= 8) {
         fav8City = document.querySelector("#fav8");
@@ -237,10 +204,6 @@ favoriteButton.addEventListener('click', function () {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
-        });
-        fav8Delete = document.querySelector('#favDelete8');
-        fav8Delete.addEventListener('click', function () {
-            fav8City.parentElement.remove();
         });
     }
     if (favIndex >= 9) {
@@ -252,12 +215,14 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
-        fav9Delete = document.querySelector('#favDelete9');
-        fav9Delete.addEventListener('click', function () {
-            fav9City.parentElement.remove();
-        });
     }
-    favIndex++;
+    deleteFavsButton.addEventListener('click', function () {
+        favItems = document.querySelectorAll('.favItems');
+        favIndex = 0;
+        favItems.forEach(function (element) {
+            element.remove();
+        });
+    });
 });
 // *changing sites function
 favPageButton.addEventListener('click', function () {

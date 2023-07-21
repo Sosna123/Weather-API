@@ -127,17 +127,9 @@ div#favList > div{
 
 div#favList > div > button.favItems{
     background: rgba(128, 128, 128, 0.8);
-    width: 450px;
+    width: 100%;
     margin-bottom: 10px;
     height: 40px;
-}
-
-div#favList > div > button.favItemsDelete{
-    background: rgba(128, 128, 128, 0.8);
-    margin-bottom: 10px;
-    width: 40px;
-    height: 40px;
-    margin-left: 4px;
 }
 
 
