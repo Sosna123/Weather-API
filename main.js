@@ -130,6 +130,7 @@ favoriteButton.addEventListener('click', function () {
     favArr.push(cityName);
     favList.innerHTML += "<div><button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button> <button id='favDelete").concat(favIndex, "' class='material-symbols-outlined favItemsDelete'>delete</button><div>");
     if (favIndex >= 1) {
+        // przenoszenie do informacji o mieście
         fav1City = document.querySelector("#fav1");
         fav1City.addEventListener('click', function () {
             var fav1CityChild = fav1City.firstChild;
@@ -138,6 +139,7 @@ favoriteButton.addEventListener('click', function () {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         });
+        // usuwanie 
         fav1Delete = document.querySelector('#favDelete1');
         fav1Delete.addEventListener('click', function () {
             fav1City.parentElement.remove();

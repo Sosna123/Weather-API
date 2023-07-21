@@ -96,6 +96,7 @@ favoriteButton.addEventListener('click', () => {
     favList.innerHTML += `<div><button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button> <button id='favDelete${favIndex}' class='material-symbols-outlined favItemsDelete'>delete</button><div>`
     
     if(favIndex >= 1){
+        // przenoszenie do informacji o mieście
         fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
         fav1City.addEventListener('click', () => {
             let fav1CityChild = fav1City.firstChild as HTMLParagraphElement;
@@ -105,6 +106,7 @@ favoriteButton.addEventListener('click', () => {
             weatherInfo.hidden = false;
         })
 
+        // usuwanie 
         fav1Delete = document.querySelector('#favDelete1')  as HTMLButtonElement;
         fav1Delete.addEventListener('click', () => {
             fav1City.parentElement!.remove();
