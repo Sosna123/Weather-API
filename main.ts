@@ -108,10 +108,10 @@ favoriteButton.addEventListener('click', () => {
         favIndex--;
         return null;
     }
-    
-    favList.innerHTML += `<div class='favItems'><button class='favItems' id="fav${favIndex}"><p>${cityName}</p></button><div>`
-    document.cookie = `favList=${favList.innerHTML}; expires=${new Date(2050, 1, 1)}; currentFavIndex=${String(favIndex)}; expires=${new Date(2050, 1, 1)}`
 
+    favList.innerHTML += `<div class='favItems'><button class='favItems' id="fav${favIndex}"><p>${cityName}</p></button></div>`
+    document.cookie = `favList=${favList.innerHTML}; expires=${new Date(2050, 1, 1)};`
+    document.cookie = `currentFavIndex=${favIndex.toString()}; expires=${new Date(2050, 1, 1)};`
 
     if(favIndex >= 1){
         // przenoszenie do informacji o mieście
@@ -237,8 +237,7 @@ mainPageButton.addEventListener('click', () => {
 
 // *cookiesy
 favList.innerHTML = getCookie('favList');
-console.log(Number(getCookie('currentFavIndex')));
-// favIndex = Number(getCookie('currentFavIndex'));
+favIndex = Number(getCookie('currentFavIndex'));
 
 
 // TODO kiedy apka prawie skończona to nie może być w komentarzu

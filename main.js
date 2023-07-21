@@ -141,8 +141,9 @@ favoriteButton.addEventListener('click', function () {
         favIndex--;
         return null;
     }
-    favList.innerHTML += "<div class='favItems'><button class='favItems' id=\"fav".concat(favIndex, "\"><p>").concat(cityName, "</p></button><div>");
-    document.cookie = "favList=".concat(favList.innerHTML, "; expires=").concat(new Date(2050, 1, 1), "; currentFavIndex=").concat(String(favIndex), "; expires=").concat(new Date(2050, 1, 1));
+    favList.innerHTML += "<div class='favItems'><button class='favItems' id=\"fav".concat(favIndex, "\"><p>").concat(cityName, "</p></button></div>");
+    document.cookie = "favList=".concat(favList.innerHTML, "; expires=").concat(new Date(2050, 1, 1), ";");
+    document.cookie = "currentFavIndex=".concat(favIndex.toString(), "; expires=").concat(new Date(2050, 1, 1), ";");
     if (favIndex >= 1) {
         // przenoszenie do informacji o mieście
         fav1City = document.querySelector("#fav1");
@@ -262,8 +263,7 @@ mainPageButton.addEventListener('click', function () {
 */
 // *cookiesy
 favList.innerHTML = getCookie('favList');
-console.log(Number(getCookie('currentFavIndex')));
-// favIndex = Number(getCookie('currentFavIndex'));
+favIndex = Number(getCookie('currentFavIndex'));
 // TODO kiedy apka prawie skończona to nie może być w komentarzu
 // setInterval(updateData, 10000)
 // TODO kiedy apka prawie skończona to musi zniknąć
