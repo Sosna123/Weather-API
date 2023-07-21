@@ -52,6 +52,7 @@ var mainPageButton = document.querySelector('#mainPage');
 var favContainer = document.querySelector('#favContainer');
 var favList = document.querySelector('#favList');
 var weatherInfo = document.querySelector('#weather-card');
+// *variables
 var fav1City;
 var fav2City;
 var fav3City;
@@ -61,7 +62,6 @@ var fav6City;
 var fav7City;
 var fav8City;
 var fav9City;
-// variables
 var favArr = [];
 var favIndex = 1;
 var cityName = 'Konin';
@@ -72,6 +72,8 @@ var tempFeel;
 var windSpeed;
 var pressure;
 var humidity;
+// *hiding container
+favContainer.hidden = true;
 // *functions
 var fetchData = function () { return __awaiter(_this, void 0, void 0, function () {
     var response, data;
@@ -104,7 +106,6 @@ var updateData = function () {
         windSpeedText.innerText = "Wind speed: ".concat(windSpeed, " m/s");
         pressureText.innerText = "Pressure: ".concat(pressure, " hPa");
         humidityText.innerHTML = "Humidity: ".concat(humidity, "%");
-        favContainer.hidden = true;
     });
 };
 // *event listeners
@@ -118,7 +119,9 @@ citySubmit.addEventListener("click", function () {
 favoriteButton.addEventListener('click', function () {
     favArr.push(cityName);
     favList.innerHTML += "<button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button>");
-    if (favIndex === 1) {
+    console.log(favIndex);
+    // TODO if(favIndex >= 4,5,6,7,8,9){}
+    if (favIndex >= 1) {
         fav1City = document.querySelector("#fav1");
         fav1City.addEventListener('click', function () {
             var fav1CityChild = fav1City.firstChild;
@@ -128,7 +131,7 @@ favoriteButton.addEventListener('click', function () {
             weatherInfo.hidden = false;
         });
     }
-    else if (favIndex === 2) {
+    if (favIndex >= 2) {
         fav2City = document.querySelector("#fav2");
         fav2City.addEventListener('click', function () {
             var fav2CityChild = fav2City.firstChild;
@@ -138,11 +141,21 @@ favoriteButton.addEventListener('click', function () {
             weatherInfo.hidden = false;
         });
     }
-    else if (favIndex === 3) {
+    if (favIndex >= 3) {
         fav3City = document.querySelector("#fav3");
         fav3City.addEventListener('click', function () {
             var fav3CityChild = fav3City.firstChild;
             cityName = fav3CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        });
+    }
+    if (favIndex >= 4) {
+        fav4City = document.querySelector("#fav4");
+        fav4City.addEventListener('click', function () {
+            var fav4CityChild = fav4City.firstChild;
+            cityName = fav4CityChild.innerText;
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
@@ -161,7 +174,7 @@ mainPageButton.addEventListener('click', function () {
 });
 /*
    ?  favorites button, cityName adds to an array, shows this site with favs
-TODO  clicking same button deletes a city from array,
+TODO  clicking favorite button deletes a city from array,
 TODO  new site with favorites and when clicked, shows this site with favs
 */
 // TODO kiedy apka prawie skończona to nie może być w komentarzu

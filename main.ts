@@ -18,6 +18,7 @@ const favContainer = document.querySelector('#favContainer') as HTMLDivElement;
 const favList = document.querySelector('#favList') as HTMLDivElement;
 const weatherInfo = document.querySelector('#weather-card') as HTMLDivElement;
 
+// *variables
 let fav1City: HTMLButtonElement;
 let fav2City: HTMLButtonElement;
 let fav3City: HTMLButtonElement;
@@ -28,7 +29,6 @@ let fav7City: HTMLButtonElement;
 let fav8City: HTMLButtonElement;
 let fav9City: HTMLButtonElement;
 
-// variables
 let favArr: string[] = [];
 let favIndex: number = 1;
 
@@ -41,6 +41,8 @@ let windSpeed: number;
 let pressure: number;
 let humidity: number;
 
+// *hiding container
+favContainer.hidden = true;
 
 // *functions
 const fetchData = async () => {
@@ -67,8 +69,6 @@ const updateData = () => {
         windSpeedText.innerText = `Wind speed: ${windSpeed} m/s`
         pressureText.innerText = `Pressure: ${pressure} hPa`
         humidityText.innerHTML = `Humidity: ${humidity}%`
-
-        favContainer.hidden = true;
     })
 }
 
@@ -84,44 +84,55 @@ citySubmit.addEventListener("click", () => {
 favoriteButton.addEventListener('click', () => {
     favArr.push(cityName);
     favList.innerHTML += `<button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button>`
+    console.log(favIndex);
     
-    if(favIndex === 1){
+    // TODO if(favIndex >= 4,5,6,7,8,9){}
+
+    if(favIndex >= 1){
         fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
         fav1City.addEventListener('click', () => {
             let fav1CityChild = fav1City.firstChild as HTMLParagraphElement;
             cityName = fav1CityChild.innerText;
             updateData();
-            
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-    } else if(favIndex === 2){
+    }
+    if(favIndex >= 2){
         fav2City = document.querySelector(`#fav2`) as HTMLButtonElement;
         fav2City.addEventListener('click', () => {
             let fav2CityChild = fav2City.firstChild as HTMLParagraphElement;
             cityName = fav2CityChild.innerText;
             updateData();
-            
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
-    } else if(favIndex === 3){
+    }
+    if(favIndex >= 3){
         fav3City = document.querySelector(`#fav3`) as HTMLButtonElement;
         fav3City.addEventListener('click', () => {
             let fav3CityChild = fav3City.firstChild as HTMLParagraphElement;
             cityName = fav3CityChild.innerText;
             updateData();
-            
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
     }
+    if(favIndex >= 4){
+        fav4City = document.querySelector(`#fav4`) as HTMLButtonElement;
+        fav4City.addEventListener('click', () => {
+            let fav4CityChild = fav4City.firstChild as HTMLParagraphElement;
+            cityName = fav4CityChild.innerText;
+            updateData();
+            favContainer.hidden = true;
+            weatherInfo.hidden = false;
+        })
+    }
+    
+    
 
     favIndex++;
 })
-
-
-
 
 // *changing sites function
 favPageButton.addEventListener('click', () => {
@@ -136,7 +147,7 @@ mainPageButton.addEventListener('click', () => {
 
 /*
    ?  favorites button, cityName adds to an array, shows this site with favs
-TODO  clicking same button deletes a city from array,
+TODO  clicking favorite button deletes a city from array,
 TODO  new site with favorites and when clicked, shows this site with favs
 */
 
