@@ -121,6 +121,11 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
+ 
+        fav2Delete = document.querySelector('#favDelete2')  as HTMLButtonElement;
+        fav2Delete.addEventListener('click', () => {
+            fav2City.parentElement!.remove();
+        })
     }
     if(favIndex >= 3){
         fav3City = document.querySelector(`#fav3`) as HTMLButtonElement;
@@ -130,6 +135,11 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        })
+
+        fav3Delete = document.querySelector('#favDelete3')  as HTMLButtonElement;
+        fav3Delete.addEventListener('click', () => {
+            fav3City.parentElement!.remove();
         })
     }
     if(favIndex >= 4){
@@ -141,6 +151,11 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
+
+        fav4Delete = document.querySelector('#favDelete4')  as HTMLButtonElement;
+        fav4Delete.addEventListener('click', () => {
+            fav4City.parentElement!.remove();
+        })
     }
     if(favIndex >= 5){
         fav5City = document.querySelector(`#fav5`) as HTMLButtonElement;
@@ -150,6 +165,11 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        })
+
+        fav5Delete = document.querySelector('#favDelete5')  as HTMLButtonElement;
+        fav5Delete.addEventListener('click', () => {
+            fav5City.parentElement!.remove();
         })
     }
     if(favIndex >= 6){
@@ -161,6 +181,11 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
+
+        fav6Delete = document.querySelector('#favDelete6')  as HTMLButtonElement;
+        fav6Delete.addEventListener('click', () => {
+            fav6City.parentElement!.remove();
+        })
     }
     if(favIndex >= 7){
         fav7City = document.querySelector(`#fav7`) as HTMLButtonElement;
@@ -170,6 +195,11 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        })
+
+        fav7Delete = document.querySelector('#favDelete7')  as HTMLButtonElement;
+        fav7Delete.addEventListener('click', () => {
+            fav7City.parentElement!.remove();
         })
     }
     if(favIndex >= 8){
@@ -181,6 +211,11 @@ favoriteButton.addEventListener('click', () => {
             favContainer.hidden = true;
             weatherInfo.hidden = false;
         })
+
+        fav8Delete = document.querySelector('#favDelete8')  as HTMLButtonElement;
+        fav8Delete.addEventListener('click', () => {
+            fav8City.parentElement!.remove();
+        })
     }
     if(favIndex >= 9){
         fav9City = document.querySelector(`#fav9`) as HTMLButtonElement;
@@ -190,6 +225,11 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        })
+
+        fav9Delete = document.querySelector('#favDelete9')  as HTMLButtonElement;
+        fav9Delete.addEventListener('click', () => {
+            fav9City.parentElement!.remove();
         })
     }
 
