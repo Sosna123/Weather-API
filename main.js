@@ -62,6 +62,15 @@ var fav6City;
 var fav7City;
 var fav8City;
 var fav9City;
+var fav1Delete;
+var fav2Delete;
+var fav3Delete;
+var fav4Delete;
+var fav5Delete;
+var fav6Delete;
+var fav7Delete;
+var fav8Delete;
+var fav9Delete;
 var favArr = [];
 var favIndex = 1;
 var cityName = 'Konin';
@@ -119,7 +128,7 @@ citySubmit.addEventListener("click", function () {
 favoriteButton.addEventListener('click', function () {
     // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
     favArr.push(cityName);
-    favList.innerHTML += "<div><button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button> <button class='material-symbols-outlined favItemsDelete'>delete</button><div>");
+    favList.innerHTML += "<div><button class='favItems' id=\"fav".concat(favIndex, "\"><p id=\"favCityName").concat(favIndex, "\">").concat(cityName, "</p></button> <button id='favDelete").concat(favIndex, "' class='material-symbols-outlined favItemsDelete'>delete</button><div>");
     if (favIndex >= 1) {
         fav1City = document.querySelector("#fav1");
         fav1City.addEventListener('click', function () {
@@ -128,6 +137,10 @@ favoriteButton.addEventListener('click', function () {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        });
+        fav1Delete = document.querySelector('#favDelete1');
+        fav1Delete.addEventListener('click', function () {
+            fav1City.parentElement.remove();
         });
     }
     if (favIndex >= 2) {

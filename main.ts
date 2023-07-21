@@ -28,6 +28,15 @@ let fav6City: HTMLButtonElement;
 let fav7City: HTMLButtonElement;
 let fav8City: HTMLButtonElement;
 let fav9City: HTMLButtonElement;
+let fav1Delete: HTMLButtonElement;
+let fav2Delete: HTMLButtonElement;
+let fav3Delete: HTMLButtonElement;
+let fav4Delete: HTMLButtonElement;
+let fav5Delete: HTMLButtonElement;
+let fav6Delete: HTMLButtonElement;
+let fav7Delete: HTMLButtonElement;
+let fav8Delete: HTMLButtonElement;
+let fav9Delete: HTMLButtonElement;
 
 let favArr: string[] = [];
 let favIndex: number = 1;
@@ -84,7 +93,7 @@ citySubmit.addEventListener("click", () => {
 favoriteButton.addEventListener('click', () => {
     // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
     favArr.push(cityName);
-    favList.innerHTML += `<div><button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button> <button class='material-symbols-outlined favItemsDelete'>delete</button><div>`
+    favList.innerHTML += `<div><button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button> <button id='favDelete${favIndex}' class='material-symbols-outlined favItemsDelete'>delete</button><div>`
     
     if(favIndex >= 1){
         fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
@@ -94,6 +103,11 @@ favoriteButton.addEventListener('click', () => {
             updateData();
             favContainer.hidden = true;
             weatherInfo.hidden = false;
+        })
+
+        fav1Delete = document.querySelector('#favDelete1')  as HTMLButtonElement;
+        fav1Delete.addEventListener('click', () => {
+            fav1City.parentElement!.remove();
         })
     }
     if(favIndex >= 2){
