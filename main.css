@@ -9,14 +9,14 @@
 html{
     height: 100%;
     width: 100%;
-    margin: 0px;
+    margin: 0em;
 }
 
 
 body{
     height: 100%;
     width: 100%;
-    margin: 0px;
+    margin: 0em;
     background-image: url('https://wallpaperaccess.com/full/857.jpg');
     object-fit: scale-down;
     display: flex;
@@ -27,23 +27,23 @@ body{
 
 div#weather-card, div#favContainer{
     background: rgba(0, 0, 0, 0.8);
-    max-height: 500px;
-    max-width: 500px;
+    max-height: 30em;
+    max-width: 30em;
     height: 100%;
     width: 100%;
-    border-radius: 10px;
+    border-radius: 3em;
     margin: auto;
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
-    padding: 50px;
+    padding: 4em;
 }
 
 
 div#search{
-    height: 40px;
+    height: 2.8em;
     display: flex;
     justify-content: center;
 }
@@ -51,11 +51,11 @@ div#search{
 div#weather-info span{
     display: flex;
     margin: auto;
-    width: 150px;
+    width: 15em;
 }
 
 div#favList{
-    height: 450px;
+    height: 29em;
 }
 
 
@@ -63,28 +63,28 @@ div#favList{
 
 button{
     background: grey;
-    border-radius: 3px;
-    padding:0px;
-    margin-left:0px;
-    margin-bottom:0px;
-    height: 40px;
-    width: 40px;
+    border-radius: 1em;
+    padding:0em;
+    margin-left:0em;
+    margin-bottom:0em;
+    height: 1.68em;
+    width: 1.68em;
 }
 
 input#citySearch{
     background-color: grey;
     border: gray;
-    border-radius: 5px;
-    height: 40px;
-    margin: 0px;
-    padding: 0px;
+    border-radius: 2em;
+    height: 3em;
+    margin: 0em;
+    padding: 0em;
     position: relative;
-    margin: 0px 5px 0px;
-    
+    margin: 0em 1em 0em;
+    text-align: center;
 }
 
 div#sameFontSize p{
-    font-size: 19px;
+    font-size: 1.3em;
 }
 
 p#weatherDesc{
