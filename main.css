@@ -27,7 +27,7 @@ body{
 
 div#weather-card, div#favContainer{
     background: rgba(0, 0, 0, 0.8);
-    max-height: 30em;
+    max-height: 32em;
     max-width: 30em;
     height: 100%;
     width: 100%;
@@ -89,12 +89,12 @@ div#sameFontSize p{
 
 p#weatherDesc{
     text-transform: capitalize;
-    width: 150px;
+    width: 6em;
     flex-shrink: 0;
 }
 
 p#tempText{
-    font-size: 30px;
+    font-size: 1.8em;
 }
 
 div#weather-info > p#tempText > span{
@@ -105,31 +105,25 @@ div#weather-info > p#tempText > span{
 span#weatherDescSpan{
     display: flex;
     margin: auto;
-    width: 300px;
     justify-content: center;
 }
 
 p#cityNameText{
-    font-size: 30px;
+    font-size: 2em;
 }
 
 img#weatherIcon{
     text-align: center;
-    width: 82px;
-    height: 82px;
-    object-fit:fill;
-}
-
-div#favList > div{
-    height: 50px;
-    display: flex;
+    width: 6em;
+    height: 6em;
+    object-fit: contain;
 }
 
 div#favList > div > button.favItems{
     background: rgba(128, 128, 128, 0.8);
     width: 100%;
-    margin-bottom: 10px;
-    height: 40px;
+    margin-bottom: 0.7em;
+    height: 3.1em;
 }
 
 
