@@ -82,9 +82,9 @@ citySubmit.addEventListener("click", () => {
 })
 
 favoriteButton.addEventListener('click', () => {
+    // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
     favArr.push(cityName);
-    favList.innerHTML += `<button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button>`
-    console.log(favIndex);
+    favList.innerHTML += `<div><button class='favItems' id="fav${favIndex}"><p id="favCityName${favIndex}">${cityName}</p></button> <button class='material-symbols-outlined favItemsDelete'>delete</button><div>`
     
     if(favIndex >= 1){
         fav1City = document.querySelector(`#fav1`) as HTMLButtonElement;
@@ -176,8 +176,6 @@ favoriteButton.addEventListener('click', () => {
             weatherInfo.hidden = false;
         })
     }
-    
-    
 
     favIndex++;
 })
@@ -194,9 +192,11 @@ mainPageButton.addEventListener('click', () => {
 })
 
 /*
-   ?  favorites button, cityName adds to an array, shows this site with favs
-TODO  clicking favorite button deletes a city from array,
-TODO  new site with favorites and when clicked, shows this site with favs
+   ?  favorites button => cityName adds to an array
+   ?  new site with favorites => shows this site with favs
+TODO  clicking favorite button again deletes a city from array
+TODO  limit fav count to 9
+TODO  delete button on favs page
 */
 
 // TODO kiedy apka prawie skończona to nie może być w komentarzu

@@ -120,10 +120,24 @@ img#weatherIcon{
     object-fit:fill;
 }
 
-div#favList > button.favItems{
+div#favList > div{
+    height: 50px;
+    display: flex;
+}
+
+div#favList > div > button.favItems{
     background: rgba(128, 128, 128, 0.8);
-    width: 100%;
+    width: 450px;
     margin-bottom: 10px;
+    height: 40px;
+}
+
+div#favList > div > button.favItemsDelete{
+    background: rgba(128, 128, 128, 0.8);
+    margin-bottom: 10px;
+    width: 40px;
+    height: 40px;
+    margin-left: 4px;
 }
 
 
