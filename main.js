@@ -112,6 +112,21 @@ var updateData = function () {
         humidityText.innerHTML = "Humidity: ".concat(humidity, "%");
     });
 };
+var getCookie = function (cookieName) {
+    var name = cookieName + '=';
+    var decodedCookie = decodeURIComponent(document.cookie);
+    var ca = decodedCookie.split(';');
+    for (var i = 0; i < ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0) == ' ') {
+            c = c.substring(1);
+        }
+        if (c.indexOf(name) == 0) {
+            return c.substring(name.length, c.length);
+        }
+    }
+    return "";
+};
 // *event listeners
 citySubmit.addEventListener("click", function () {
     if (cityInput.value != '') {
@@ -121,9 +136,13 @@ citySubmit.addEventListener("click", function () {
     }
 });
 favoriteButton.addEventListener('click', function () {
-    // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
     favIndex++;
+    if (favIndex > 9) {
+        favIndex--;
+        return null;
+    }
     favList.innerHTML += "<div class='favItems'><button class='favItems' id=\"fav".concat(favIndex, "\"><p>").concat(cityName, "</p></button><div>");
+    document.cookie = "favList=".concat(favList.innerHTML, "; expires=").concat(new Date(2050, 1, 1), "; currentFavIndex=").concat(String(favIndex), "; expires=").concat(new Date(2050, 1, 1));
     if (favIndex >= 1) {
         // przenoszenie do informacji o mieście
         fav1City = document.querySelector("#fav1");
@@ -216,13 +235,14 @@ favoriteButton.addEventListener('click', function () {
             weatherInfo.hidden = false;
         });
     }
-    deleteFavsButton.addEventListener('click', function () {
-        favItems = document.querySelectorAll('.favItems');
-        favIndex = 0;
-        favItems.forEach(function (element) {
-            element.remove();
-        });
+});
+deleteFavsButton.addEventListener('click', function () {
+    favItems = document.querySelectorAll('.favItems');
+    favIndex = 0;
+    favItems.forEach(function (element) {
+        element.remove();
     });
+    document.cookie = "favList=".concat(favList.innerHTML, "; expires=").concat(new Date(1), "; currentFavIndex=").concat(favIndex, "; expires=").concat(new Date(1));
 });
 // *changing sites function
 favPageButton.addEventListener('click', function () {
@@ -234,12 +254,16 @@ mainPageButton.addEventListener('click', function () {
     weatherInfo.hidden = false;
 });
 /*
+     !TODOS:
    ?  favorites button => cityName adds to an array
    ?  new site with favorites => shows this site with favs
-TODO  clicking favorite button again deletes a city from array
-TODO  limit fav count to 9
-TODO  delete button on favs page
+   ?  delete all button
+   ?  limit fav count to 9
 */
+// *cookiesy
+favList.innerHTML = getCookie('favList');
+console.log(Number(getCookie('currentFavIndex')));
+// favIndex = Number(getCookie('currentFavIndex'));
 // TODO kiedy apka prawie skończona to nie może być w komentarzu
 // setInterval(updateData, 10000)
 // TODO kiedy apka prawie skończona to musi zniknąć

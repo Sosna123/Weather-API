@@ -76,6 +76,22 @@ const updateData = () => {
     })
 }
 
+const getCookie = (cookieName) => {
+    let name = cookieName + '=';
+    let decodedCookie = decodeURIComponent(document.cookie);
+    let ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
+      }
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
+      }
+    }
+    return "";
+}
+
 // *event listeners
 citySubmit.addEventListener("click", () => {
     if(cityInput.value != ''){
@@ -86,10 +102,16 @@ citySubmit.addEventListener("click", () => {
 })
 
 favoriteButton.addEventListener('click', () => {
-    // TODO dodać arraya do cookiesów, a po przeładowaniu cookiesy są dodawane do fav
-    
     favIndex++;
+
+    if(favIndex > 9){
+        favIndex--;
+        return null;
+    }
+    
     favList.innerHTML += `<div class='favItems'><button class='favItems' id="fav${favIndex}"><p>${cityName}</p></button><div>`
+    document.cookie = `favList=${favList.innerHTML}; expires=${new Date(2050, 1, 1)}; currentFavIndex=${String(favIndex)}; expires=${new Date(2050, 1, 1)}`
+
 
     if(favIndex >= 1){
         // przenoszenie do informacji o mieście
@@ -183,15 +205,15 @@ favoriteButton.addEventListener('click', () => {
             weatherInfo.hidden = false;
         })
     }
+})
 
-    deleteFavsButton.addEventListener('click', () => {
-        favItems = document.querySelectorAll('.favItems');
-        favIndex = 0;
-        favItems.forEach(element => {
-            element.remove();
-        })
+deleteFavsButton.addEventListener('click', () => {
+    favItems = document.querySelectorAll('.favItems');
+    favIndex = 0;
+    favItems.forEach(element => {
+        element.remove();
     })
-
+    document.cookie = `favList=${favList.innerHTML}; expires=${new Date(1)}; currentFavIndex=${favIndex}; expires=${new Date(1)}`
 })
 
 // *changing sites function
@@ -205,13 +227,19 @@ mainPageButton.addEventListener('click', () => {
     weatherInfo.hidden = false;
 })
 
-/*
+/* 
+     !TODOS:
    ?  favorites button => cityName adds to an array
    ?  new site with favorites => shows this site with favs
-TODO  clicking favorite button again deletes a city from array
-TODO  limit fav count to 9
-TODO  delete button on favs page
+   ?  delete all button
+   ?  limit fav count to 9
 */
+
+// *cookiesy
+favList.innerHTML = getCookie('favList');
+console.log(Number(getCookie('currentFavIndex')));
+// favIndex = Number(getCookie('currentFavIndex'));
+
 
 // TODO kiedy apka prawie skończona to nie może być w komentarzu
 // setInterval(updateData, 10000)
