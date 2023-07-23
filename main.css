@@ -41,6 +41,23 @@ div#weather-card, div#favContainer{
     padding: 4em;
 }
 
+@media screen and (max-width: 610px){
+    div#weather-card, div#favContainer{
+        background: rgba(0, 0, 0, 0.8);
+        max-height: 32em;
+        max-width: 15em;
+        height: 100%;
+        width: 100%;
+        border-radius: 3em;
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+        padding: 4em;
+    }
+}
 
 div#search{
     height: 2.8em;
